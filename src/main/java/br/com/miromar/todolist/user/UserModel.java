@@ -6,6 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -20,8 +23,11 @@ public class UserModel {
     private UUID id;
 
 
+    @Column(unique = true)
     private String username;
     private String name;
+
+    @JsonIgnore
     private String password;
 
     @CreationTimestamp
